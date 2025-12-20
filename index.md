@@ -3,7 +3,7 @@ layout: home
 author_profile: true
 ---
 
-I am **Zakaria Izouaouen**, a **PhD researcher in Artificial Intelligence and Immersive Technologies (VR/AR/MR)**.
+A **PhD researcher in Artificial Intelligence and Immersive Technologies (VR/AR/MR)**.
 
 My research interests include:
 - Intelligent and secure system processing
@@ -15,6 +15,7 @@ My research interests include:
 This website presents my **research projects, scientific publications, teaching materials, and experimental developments**.
 
 Feel free to explore and connect.
+
 
 
 
