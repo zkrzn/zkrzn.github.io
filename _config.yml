@@ -32,7 +32,7 @@ author:
 include:
   - _pages
 
-nav:
+masthead_links:
   - title: Home
     url: /
   - title: Research
@@ -45,6 +45,7 @@ nav:
     url: /projects/
   - title: Contact
     url: /contact/
+
 
 plugins:
   - jekyll-seo-tag
