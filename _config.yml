@@ -1,13 +1,51 @@
-theme: minimal-mistakes-jekyll
 remote_theme: "mmistakes/minimal-mistakes"
+minimal_mistakes_skin: dark
 
 title: ZAKARIA IZOUAOUEN
 subtitle: PhD Researcher in Artificial Intelligence & Immersive Technologies
 name: Zakaria Izouaouen
 
 description: >
-  Artificial Intelligence, Machine Learning, and Immersive Systems (VR/AR/MR).
-  Research, teaching, and applied innovation in intelligent and secure systems.
+  Research and teaching in Artificial Intelligence, Machine Learning,
+  and Immersive Technologies (VR/AR/MR). Focus on intelligent and secure systems,
+  data-driven modeling, and educational innovation.
 
 locale: en-US
 timezone: Africa/Casablanca
+
+author:
+  name: Zakaria Izouaouen
+  avatar: /assets/images/profile.jpg
+  bio: >
+    PhD Researcher in Artificial Intelligence and Immersive Technologies (VR/AR/MR).
+    Specialized in intelligent systems, machine learning, data science,
+    and secure system processing.
+  location: Morocco
+  links:
+    - label: GitHub
+      icon: fab fa-github
+      url: https://github.com/zakariaizouaouen
+    - label: LinkedIn
+      icon: fab fa-linkedin
+      url: https://linkedin.com/in/zakaria-izouaouen
+
+include:
+  - _pages
+
+nav:
+  - title: Home
+    url: /
+  - title: Research
+    url: /research/
+  - title: Publications
+    url: /publications/
+  - title: Teaching
+    url: /teaching/
+  - title: Projects
+    url: /projects/
+  - title: Contact
+    url: /contact/
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-s
