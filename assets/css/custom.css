@@ -1,0 +1,21 @@
+body {
+  font-family: "Inter", "Roboto", system-ui, sans-serif;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  letter-spacing: -0.4px;
+}
+
+a {
+  color: #38bdf8;
+}
+
+a:hover {
+  color: #0ea5e9;
+}
+
+.page__content {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
