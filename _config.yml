@@ -48,4 +48,5 @@ nav:
 
 plugins:
   - jekyll-seo-tag
-  - jekyll-s
+  - jekyll-sitemap
+  - jekyll-include-cache
