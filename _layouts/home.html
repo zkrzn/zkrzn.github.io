@@ -3,7 +3,8 @@ layout: default
 ---
 
 <section class="home-intro" aria-labelledby="home-heading">
-  <h1 id="home-heading">{{ site.title }}</h1>
+  <!-- site title kept in masthead to avoid repetition -->
+  <h1 class="sr-only" id="home-heading">{{ site.title }}</h1>
   {% if site.subtitle %}<p class="lead">{{ site.subtitle }}</p>{% endif %}
   {{ content }}
 </section>
