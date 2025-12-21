@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="{{ site.description | default: site.title }}">
+    <title>{{ page.title | default: site.title }}</title>
+
+    <!-- Fonts / icons -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+
+    {% if site.github && site.github.url %}
+      <link rel="canonical" href="{{ site.github.url }}">
+    {% endif %}
+  </head>
+  <body>
+    {% include masthead.html %}
+
+    <main class="page__content" role="main">
+      <div class="container" style="max-width:1100px;margin:2rem auto;padding:0 1rem;">
+        {{ content }}
+      </div>
+    </main>
+
+    <footer style="max-width:1100px;margin:4rem auto 2rem;padding:0 1rem;color:var(--muted);font-size:0.95rem;">
+      <p>© {{ site.time | date: '%Y' }} {{ site.author.name }} — Built with Jekyll</p>
+    </footer>
+
+    <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}" defer></script>
+  </body>
+</html>
