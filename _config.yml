@@ -1,5 +1,5 @@
-remote_theme: "mmistakes/minimal-mistakes"
-minimal_mistakes_skin: dark
+remote_theme: "pages-themes/architect"
+logo: /assets/images/logo.svg
 
 title: ZAKARIA IZOUAOUEN
 subtitle: PhD Researcher in Artificial Intelligence & Immersive Technologies
