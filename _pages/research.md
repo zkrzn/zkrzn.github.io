@@ -4,8 +4,6 @@ layout: single
 permalink: /research/
 ---
 
-## 🔬 Research Areas
-
 ### Artificial Intelligence
 - Machine Learning & Deep Learning
 - Intelligent decision systems

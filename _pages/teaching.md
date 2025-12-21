@@ -4,8 +4,6 @@ layout: single
 permalink: /teaching/
 ---
 
-## 🎓 Teaching Experience
-
 ### Courses
 - Mathematics for Computer Science
 - Machine Learning

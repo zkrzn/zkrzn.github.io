@@ -4,8 +4,6 @@ layout: single
 permalink: /publications/
 ---
 
-## 📄 Selected Publications
-
 ### Journal Articles
 - *Under Review*
 

@@ -4,8 +4,6 @@ layout: single
 permalink: /projects/
 ---
 
-## 🚀 Projects
-
 ### Intelligent Processing & Security of Systems (IPSS)
 - AI-based secure systems
 - Data-driven intelligence pipelines

@@ -4,8 +4,6 @@ layout: single
 permalink: /contact/
 ---
 
-## 📬 Contact
-
 You can reach me via:
 
 - **Email:** izouaouen.zakaria (at) gmail.com  
