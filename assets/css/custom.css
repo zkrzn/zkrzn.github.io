@@ -135,4 +135,25 @@ html, body {
 /* Optional: focus outlines for keyboard users */
 .site-nav__item a:focus, .social-link:focus, .theme-toggle:focus { outline: 3px solid rgba(59,130,246,0.12); outline-offset:3px; }
 
-/* End header overrides */
+/* ===== Fixed Footer ===== */
+.site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--surface, #0a1628);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 0.75rem 1.5rem;
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--muted);
+  z-index: 900;
+  backdrop-filter: blur(8px);
+}
+
+.site-footer p { margin: 0; }
+
+/* Add padding to body so content doesn't hide behind fixed footer */
+body { padding-bottom: 3.5rem; }
+
+/* End footer overrides */
