@@ -3,8 +3,6 @@ layout: home
 author_profile: true
 ---
 
-A **PhD researcher in Artificial Intelligence and Immersive Technologies (VR/AR/MR)**.
-
 My research interests include:
 - Intelligent and secure system processing
 - Machine learning and data science

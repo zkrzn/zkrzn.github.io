@@ -1,4 +1,4 @@
-remote_theme: "pages-themes/architect"
+# Using custom layouts (no remote_theme)
 logo: /assets/images/logo.svg
 
 title: ZAKARIA IZOUAOUEN
