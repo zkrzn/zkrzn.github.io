@@ -2,10 +2,12 @@
 layout: default
 ---
 
-<article class="single-article" style="max-width:900px;margin:2rem auto;padding:1rem;">
+<article class="single-article">
   {% if page.title %}
     <h1 class="page-title">{{ page.title }}</h1>
   {% endif %}
 
-  {{ content }}
+  <div class="article-content">
+    {{ content }}
+  </div>
 </article>

@@ -1,4 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Zakaria logo">
-  <rect width="120" height="120" rx="18" fill="#06b6d4"/>
-  <text x="50%" y="54%" font-family="Inter, Roboto, system-ui, sans-serif" font-weight="700" font-size="52" fill="#fff" text-anchor="middle" dominant-baseline="middle">Z</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Zakaria Izouaouen logo">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06b6d4"/>
+      <stop offset="50%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="120" height="120" rx="24" fill="#0a0f1a"/>
+  <rect x="4" y="4" width="112" height="112" rx="20" fill="none" stroke="url(#grad1)" stroke-width="2" opacity="0.6"/>
+  <text x="50%" y="56%" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="56" fill="url(#grad1)" text-anchor="middle" dominant-baseline="middle" filter="url(#glow)">Z</text>
 </svg>
