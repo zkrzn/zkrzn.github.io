@@ -1,0 +1,43 @@
+<!-- Custom masthead include: logo, title, nav, social icons, theme toggle -->
+<header class="site-masthead" role="banner">
+  <div class="masthead-inner">
+    <a class="masthead-logo" href="{{ '/' | relative_url }}" aria-label="Home">
+      <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="{{ site.title }} logo" width="48" height="48">
+    </a>
+
+    <div class="site-title-wrap">
+      <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      {% if site.subtitle %}<p class="site-subtitle">{{ site.subtitle }}</p>{% endif %}
+    </div>
+
+    <nav class="site-nav" role="navigation" aria-label="Primary">
+      {% for item in site.masthead_links %}
+        <div class="site-nav__item {% if page.url == item.url %}site-nav__item--active{% endif %}">
+          <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+        </div>
+      {% endfor %}
+    </nav>
+
+    <div class="masthead-actions">
+      <div class="social-links" aria-hidden="false">
+        {% for link in site.author.links %}
+          <a href="{{ link.url }}" class="social-link" title="{{ link.label }}" target="_blank" rel="noopener noreferrer">
+            {% if link.icon %}
+              <i class="{{ link.icon }}" aria-hidden="true"></i>
+              <span class="sr-only">{{ link.label }}</span>
+            {% else %}
+              {{ link.label }}
+            {% endif %}
+          </a>
+        {% endfor %}
+      </div>
+
+      <button class="theme-toggle" aria-pressed="false" aria-label="Toggle color theme" onclick="toggleSiteTheme();">
+        <svg class="icon icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4"/><g stroke-width="2" stroke-linecap="round"><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.2 4.2l1.4 1.4"/><path d="M18.4 18.4l1.4 1.4"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.2 19.8l1.4-1.4"/><path d="M18.4 5.6l1.4-1.4"/></g></svg>
+        <svg class="icon icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}" defer></script>
+</header>
