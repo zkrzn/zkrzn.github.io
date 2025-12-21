@@ -1,5 +1,5 @@
 ---
-title: Research
+title: "🔬 Research"
 layout: single
 permalink: /research/
 ---

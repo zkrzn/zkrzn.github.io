@@ -1,5 +1,5 @@
 ---
-title: Teaching
+title: "🎓 Teaching"
 layout: single
 permalink: /teaching/
 ---
