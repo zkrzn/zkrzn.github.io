@@ -3,8 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="{{ site.description | default: site.title }}">
-    <title>{{ page.title | default: site.title }}</title>
+    {% seo %}
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="{{ '/assets/images/favicon.svg' | relative_url }}">
@@ -35,5 +34,7 @@
     <footer class="site-footer">
       <p>© 2020–2026 Zakaria Izouaouen. All rights reserved.</p>
     </footer>
+
+    <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}"></script>
   </body>
 </html>

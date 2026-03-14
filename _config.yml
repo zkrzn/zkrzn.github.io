@@ -50,5 +50,4 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-include-cache
-  - jekyll-remote-theme
   - jekyll-feed
