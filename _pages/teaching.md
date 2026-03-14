@@ -1,5 +1,7 @@
 ---
-title: "🎓 Teaching"
+title: "AI and Data Science Teaching"
+description: "Teaching activities in computer science, machine learning, artificial intelligence, and data science at Mohammed V University."
+icon: "fa-solid fa-chalkboard-user"
 layout: single
 permalink: /teaching/
 ---
@@ -8,7 +10,7 @@ As a PhD researcher, I contribute to teaching activities at Mohammed V Universit
 
 ---
 
-## 📚 Courses Taught
+## <i class="fa-solid fa-book-open" aria-hidden="true"></i> Courses Taught
 
 ### Mathematics for Computer Science
 - Linear algebra and matrix operations
@@ -37,7 +39,7 @@ As a PhD researcher, I contribute to teaching activities at Mohammed V Universit
 
 ---
 
-## 🎯 Teaching Philosophy
+## <i class="fa-solid fa-bullseye" aria-hidden="true"></i> Teaching Philosophy
 
 My teaching approach emphasizes:
 
@@ -49,7 +51,7 @@ My teaching approach emphasizes:
 
 ---
 
-## 🛠️ Tools & Technologies Used in Teaching
+## <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Tools & Technologies Used in Teaching
 
 - **Programming:** Python, R, MATLAB
 - **Libraries:** Scikit-learn, TensorFlow, Pandas, NumPy
@@ -58,7 +60,7 @@ My teaching approach emphasizes:
 
 ---
 
-## 🤝 Open to Collaboration
+## <i class="fa-solid fa-handshake" aria-hidden="true"></i> Open to Collaboration
 
 I am available for:
 - Guest lectures and workshops

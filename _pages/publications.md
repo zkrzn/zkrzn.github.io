@@ -1,18 +1,20 @@
 ---
-title: "📄 Publications"
+title: "Scientific Publications in AI and Immersive Technologies"
+description: "Peer-reviewed publications, conference papers, and ongoing research in artificial intelligence, metaverse systems, and immersive education."
+icon: "fa-solid fa-file-lines"
 layout: single
 permalink: /publications/
 ---
 
 Below is a selection of my peer-reviewed publications. For a complete list, visit my profiles:
 
-- 📊 [Google Scholar](https://scholar.google.com/citations?user=dsJzeEcAAAAJ&hl=fr)
-- 🔬 [ResearchGate](https://www.researchgate.net/profile/Zakaria-Izouaouen)
-- 📚 [Semantic Scholar](https://www.semanticscholar.org/author/2379223972)
+- <i class="fa-solid fa-chart-line" aria-hidden="true"></i> [Google Scholar](https://scholar.google.com/citations?user=dsJzeEcAAAAJ&hl=fr)
+- <i class="fa-solid fa-microscope" aria-hidden="true"></i> [ResearchGate](https://www.researchgate.net/profile/Zakaria-Izouaouen)
+- <i class="fa-solid fa-book-open" aria-hidden="true"></i> [Semantic Scholar](https://www.semanticscholar.org/author/2379223972)
 
 ---
 
-## 📕 Book Chapters
+## <i class="fa-solid fa-book" aria-hidden="true"></i> Book Chapters
 
 ### Virtual Reality in Mental Health Care: A Scoping Review of Applications, Efficacy
 
@@ -27,7 +29,7 @@ Below is a selection of my peer-reviewed publications. For a complete list, visi
 
 ---
 
-## 📝 Conference Papers
+## <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i> Conference Papers
 
 ### Federated Intelligence in Immersive Technologies: Systematic Review of Privacy, Agents and Metaverse
 
@@ -49,7 +51,7 @@ Below is a selection of my peer-reviewed publications. For a complete list, visi
 
 ---
 
-## 📚 Ongoing Work
+## <i class="fa-solid fa-book-open" aria-hidden="true"></i> Ongoing Work
 
 - **PhD Thesis** — Intelligent Multi-Agent Systems for Immersive Educational Environments
 - **Journal Article (Under Review)** — Advanced federated learning frameworks for privacy-preserving AI in metaverse applications
@@ -57,7 +59,7 @@ Below is a selection of my peer-reviewed publications. For a complete list, visi
 
 ---
 
-## 📈 Research Impact
+## <i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i> Research Impact
 
 | Metric | Value |
 |--------|-------|
