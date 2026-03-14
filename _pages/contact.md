@@ -1,5 +1,7 @@
 ---
-title: "📬 Contact"
+title: "Contact for AI Research and Collaboration"
+description: "Contact Zakaria Izouaouen for AI research collaborations, academic partnerships, student supervision, and speaking engagements."
+icon: "fa-solid fa-envelope-open-text"
 layout: single
 permalink: /contact/
 ---
@@ -8,13 +10,13 @@ I'd love to hear from you! Whether you're interested in research collaboration, 
 
 ---
 
-## 📧 Get in Touch
+## <i class="fa-solid fa-envelope" aria-hidden="true"></i> Get in Touch
 
 - **Email:** [izouaouen.zakaria@gmail.com](mailto:izouaouen.zakaria@gmail.com)
 
 ---
 
-## 🌐 Find Me Online
+## <i class="fa-solid fa-globe" aria-hidden="true"></i> Find Me Online
 
 - **GitHub:** [github.com/zkrzn](https://github.com/zkrzn)
 - **LinkedIn:** [linkedin.com/in/zakaria-izouaouen](https://linkedin.com/in/zakaria-izouaouen)
@@ -22,7 +24,7 @@ I'd love to hear from you! Whether you're interested in research collaboration, 
 
 ---
 
-## 🤝 Open To
+## <i class="fa-solid fa-handshake" aria-hidden="true"></i> Open To
 
 - **Research Collaborations** — Joint projects in AI, immersive technologies, and educational innovation
 - **Academic Partnerships** — Inter-university research initiatives and knowledge exchange
@@ -32,13 +34,13 @@ I'd love to hear from you! Whether you're interested in research collaboration, 
 
 ---
 
-## 📍 Location
+## <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Location
 
 **Mohammed V University**  
 Rabat, Morocco
 
 ---
 
-## ⏰ Response Time
+## <i class="fa-solid fa-clock" aria-hidden="true"></i> Response Time
 
 I typically respond to emails within **24-48 hours**. For urgent matters, please mention it in the subject line.

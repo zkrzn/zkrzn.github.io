@@ -1,5 +1,7 @@
 ---
-title: "🚀 Projects"
+title: "AI, Security, and Immersive Technology Projects"
+description: "Projects in secure AI systems, immersive learning environments, multi-agent systems, and data science analytics."
+icon: "fa-solid fa-rocket"
 layout: single
 permalink: /projects/
 ---
@@ -8,7 +10,7 @@ A selection of research and development projects I am currently working on or ha
 
 ---
 
-## 🔒 Intelligent Processing & Security of Systems (IPSS)
+## <i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Intelligent Processing & Security of Systems (IPSS)
 
 Developing AI-driven secure systems for robust data processing and analysis.
 
@@ -20,7 +22,7 @@ Developing AI-driven secure systems for robust data processing and analysis.
 
 ---
 
-## 🎓 Immersive Learning Environments
+## <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> Immersive Learning Environments
 
 Building next-generation educational platforms using VR/AR technologies enhanced by AI.
 
@@ -32,7 +34,7 @@ Building next-generation educational platforms using VR/AR technologies enhanced
 
 ---
 
-## 🤖 Multi-Agent Systems for Metaverse
+## <i class="fa-solid fa-robot" aria-hidden="true"></i> Multi-Agent Systems for Metaverse
 
 Researching collaborative AI agents for intelligent virtual environments.
 
@@ -44,7 +46,7 @@ Researching collaborative AI agents for intelligent virtual environments.
 
 ---
 
-## 📊 Data Science & Analytics
+## <i class="fa-solid fa-chart-line" aria-hidden="true"></i> Data Science & Analytics
 
 Applying machine learning and statistical methods to real-world problems.
 
