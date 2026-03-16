@@ -12,7 +12,7 @@ I'd love to hear from you! Whether you're interested in research collaboration, 
 
 ## <i class="fa-solid fa-envelope" aria-hidden="true"></i> Get in Touch
 
-- **Email:** [izouaouen.zakaria@gmail.com](mailto:izouaouen.zakaria@gmail.com)
+- **Email:** izouaouen.zakaria (at) gmail (point) com
 
 ---
 
