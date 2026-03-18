@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zkrzn.github.io/sitemap.xml
