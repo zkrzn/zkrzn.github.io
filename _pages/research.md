@@ -4,7 +4,7 @@ description: "Research topics in artificial intelligence, immersive technologies
 icon: "fa-solid fa-microscope"
 layout: single
 permalink: /research/
-orcid_id: ""
+orcid_id: "0009-0006-5005-0016"
 ---
 
 My research focuses on the intersection of **Artificial Intelligence** and **Immersive Technologies**, with a particular emphasis on creating intelligent systems that enhance human experiences in virtual and augmented environments.
