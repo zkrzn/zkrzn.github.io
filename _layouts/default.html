@@ -3,8 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <!-- Apply saved theme before CSS renders to prevent flash -->
-    <script>try{var t=localStorage.getItem('site-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+    <!-- Apply saved theme (or system preference) before CSS renders to prevent flash.
+         Note: This intentionally duplicates the detection logic in theme-toggle.js;
+         the inline script must be self-contained so it runs synchronously before any
+         stylesheet is applied, preventing a flash of incorrect theme (FOIT). -->
+    <script>try{var _t=localStorage.getItem('site-theme');if(_t==='light'||_t==='dark'){document.documentElement.setAttribute('data-theme',_t);}else{var _m=window.matchMedia&&window.matchMedia('(prefers-color-scheme: light)');document.documentElement.setAttribute('data-theme',_m&&_m.matches?'light':'dark');}}catch(e){}</script>
     {% seo %}
 
     <!-- Favicon -->

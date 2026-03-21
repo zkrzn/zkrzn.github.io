@@ -2,7 +2,115 @@
 layout: default
 ---
 
-<section class="home-intro" aria-labelledby="home-heading">
-  <h1 class="sr-only" id="home-heading">{{ site.title }}</h1>
+<section class="hero-section" aria-labelledby="hero-heading">
+  <div class="hero-content">
+    <div class="hero-badge">
+      <i class="fa-solid fa-circle-notch fa-spin" aria-hidden="true" style="margin-right:.4em;opacity:.6"></i>
+      PhD Researcher · Mohammed V University, Rabat
+    </div>
+    <h1 class="hero-title" id="hero-heading">
+      <span class="gradient-text">{{ site.author.name }}</span>
+    </h1>
+    <p class="hero-role">Artificial Intelligence · Immersive Technologies · Secure Systems</p>
+    <p class="hero-description">
+      I study the intersection of AI and VR/AR/MR environments, building intelligent
+      systems that enhance human-computer interaction through virtual and augmented reality.
+    </p>
+    <div class="hero-cta" role="group" aria-label="Main actions">
+      <a href="{{ '/research/' | relative_url }}" class="cta-btn cta-btn--primary">
+        <i class="fa-solid fa-microscope" aria-hidden="true"></i> View Research
+      </a>
+      <a href="{{ '/contact/' | relative_url }}" class="cta-btn cta-btn--secondary">
+        <i class="fa-solid fa-envelope" aria-hidden="true"></i> Contact
+      </a>
+    </div>
+    <div class="hero-meta" aria-label="Current affiliations">
+      <span><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Morocco</span>
+      <span><i class="fa-brands fa-orcid" aria-hidden="true"></i>
+        {% if site.author.orcid and site.author.orcid != "" %}
+          <a href="https://orcid.org/{{ site.author.orcid }}" target="_blank" rel="noopener noreferrer">ORCID {{ site.author.orcid }}</a>
+        {% else %}
+          ORCID
+        {% endif %}
+      </span>
+    </div>
+  </div>
+  <div class="hero-visual" aria-hidden="true">
+    <svg class="hero-svg" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+      <circle cx="170" cy="170" r="120" stroke="url(#hg1)" stroke-width="1" opacity=".35"/>
+      <circle cx="170" cy="170" r="80"  stroke="url(#hg1)" stroke-width="1" opacity=".25"/>
+      <circle cx="170" cy="170" r="40"  fill="url(#hg1)" opacity=".15"/>
+      <!-- Nodes -->
+      <circle class="hero-node" cx="170" cy="50"  r="6" fill="url(#hg1)"/>
+      <circle class="hero-node" cx="290" cy="170" r="6" fill="url(#hg2)"/>
+      <circle class="hero-node" cx="170" cy="290" r="6" fill="url(#hg1)"/>
+      <circle class="hero-node" cx="50"  cy="170" r="6" fill="url(#hg2)"/>
+      <!-- Mid nodes -->
+      <circle class="hero-node" cx="243" cy="97"  r="4" fill="url(#hg2)" opacity=".8"/>
+      <circle class="hero-node" cx="243" cy="243" r="4" fill="url(#hg1)" opacity=".8"/>
+      <circle class="hero-node" cx="97"  cy="243" r="4" fill="url(#hg2)" opacity=".8"/>
+      <circle class="hero-node" cx="97"  cy="97"  r="4" fill="url(#hg1)" opacity=".8"/>
+      <!-- Lines -->
+      <line x1="170" y1="50"  x2="243" y2="97"  stroke="url(#hg1)" stroke-width=".8" opacity=".4"/>
+      <line x1="243" y1="97"  x2="290" y2="170" stroke="url(#hg2)" stroke-width=".8" opacity=".4"/>
+      <line x1="290" y1="170" x2="243" y2="243" stroke="url(#hg1)" stroke-width=".8" opacity=".4"/>
+      <line x1="243" y1="243" x2="170" y2="290" stroke="url(#hg2)" stroke-width=".8" opacity=".4"/>
+      <line x1="170" y1="290" x2="97"  y2="243" stroke="url(#hg1)" stroke-width=".8" opacity=".4"/>
+      <line x1="97"  y1="243" x2="50"  y2="170" stroke="url(#hg2)" stroke-width=".8" opacity=".4"/>
+      <line x1="50"  y1="170" x2="97"  y2="97"  stroke="url(#hg1)" stroke-width=".8" opacity=".4"/>
+      <line x1="97"  y1="97"  x2="170" y2="50"  stroke="url(#hg2)" stroke-width=".8" opacity=".4"/>
+      <!-- Centre -->
+      <circle cx="170" cy="170" r="16" fill="url(#hg1)" opacity=".8"/>
+      <defs>
+        <linearGradient id="hg1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%"   stop-color="var(--accent-cyan)"/>
+          <stop offset="100%" stop-color="var(--accent-blue)"/>
+        </linearGradient>
+        <linearGradient id="hg2" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%"   stop-color="var(--accent-blue)"/>
+          <stop offset="100%" stop-color="var(--accent-purple)"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+</section>
+
+<section class="stats-section" aria-label="Research statistics">
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-number gradient-text">3</div>
+      <div class="stat-label">Publications</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number gradient-text">2</div>
+      <div class="stat-label">Conference Papers</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number gradient-text">1</div>
+      <div class="stat-label">Book Chapter</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number gradient-text">3+</div>
+      <div class="stat-label">Research Areas</div>
+    </div>
+  </div>
+</section>
+
+<section class="timeline-section" aria-labelledby="timeline-heading">
+  <h2 id="timeline-heading" class="section-heading">
+    <i class="fa-solid fa-chart-column" aria-hidden="true"></i> Publications Timeline
+  </h2>
+  <div class="chart-wrapper">
+    <canvas id="pub-timeline-chart"
+      aria-label="Bar chart showing publications per year"
+      role="img">
+    </canvas>
+  </div>
+</section>
+
+<section class="home-intro" aria-labelledby="home-content-heading">
+  <h2 class="sr-only" id="home-content-heading">About</h2>
   {{ content }}
 </section>
+
+<script src="{{ '/assets/js/publications-chart.js' | relative_url }}" defer></script>

@@ -21,6 +21,7 @@ author:
     Specialized in intelligent systems, machine learning, data science,
     and secure system processing.
   location: Morocco
+  orcid: ""
   links:
     - label: GitHub
       icon: fab fa-github
@@ -35,10 +36,8 @@ include:
 masthead_links:
   - title: Home
     url: /
-  - title: Research
+  - title: Research &amp; Publications
     url: /research/
-  - title: Publications
-    url: /publications/
   - title: Teaching
     url: /teaching/
   - title: Projects
