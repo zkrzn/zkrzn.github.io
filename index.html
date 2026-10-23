@@ -171,7 +171,8 @@
 <div class="hero" id="top">
   <div>
     <h1><span>Zakaria</span><span>Izouaouen</span></h1>
-    <p class="statement">PhD researcher in <b>artificial intelligence</b> and <b>immersive technologies</b>. I work on agents, privacy and learning inside VR, AR and MR. Mohammed V University, Rabat.</p>
+    <p class="statement">PhD researcher in <b>artificial intelligence</b> and <b>immersive technologies</b>. I work on agents, privacy and learning inside VR, AR and MR. 
+    </p><p class="statement">IPSS, Intelligent Processing and Security Systems Laboratory, Mohammed V University, Rabat, Morocco.</p>
   </div>
   <div class="scene" id="scene" aria-hidden="true"></div>
   <div class="hero-stats">
@@ -267,10 +268,75 @@ function initScene(){
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   host.appendChild(renderer.domElement);
 
-  /* dynamic mathematical wave surface f(x, y, t) and analytical gradient */
-  const f  = (x, y, t=0) => 0.55 * Math.sin(1.2 * x - t) * Math.cos(1.2 * y - 0.8 * t) + 0.25 * Math.sin(0.8 * x + 0.8 * y - 1.2 * t) + 0.08 * (x * x + y * y);
-  const gx = (x, y, t=0) => 0.66 * Math.cos(1.2 * x - t) * Math.cos(1.2 * y - 0.8 * t) + 0.20 * Math.cos(0.8 * x + 0.8 * y - 1.2 * t) + 0.16 * x;
-  const gy = (x, y, t=0) => -0.66 * Math.sin(1.2 * x - t) * Math.sin(1.2 * y - 0.8 * t) + 0.20 * Math.cos(0.8 * x + 0.8 * y - 1.2 * t) + 0.16 * y;
+  /* Dynamic mathematical landscape library: morphs continuously across benchmark loss functions */
+  const FUNCS = [
+    {
+      name: 'Harmonic Wave Surface',
+      eq: 'f(x, y, t) = 0.55 sin(1.2x - t) cos(1.2y - 0.8t) + 0.25 sin(0.8x + 0.8y - 1.2t) + 0.08(x² + y²)',
+      f: (x, y, t) => 0.55 * Math.sin(1.2 * x - t) * Math.cos(1.2 * y - 0.8 * t) + 0.25 * Math.sin(0.8 * x + 0.8 * y - 1.2 * t) + 0.08 * (x * x + y * y),
+      gx: (x, y, t) => 0.66 * Math.cos(1.2 * x - t) * Math.cos(1.2 * y - 0.8 * t) + 0.20 * Math.cos(0.8 * x + 0.8 * y - 1.2 * t) + 0.16 * x,
+      gy: (x, y, t) => -0.66 * Math.sin(1.2 * x - t) * Math.sin(1.2 * y - 0.8 * t) + 0.20 * Math.cos(0.8 * x + 0.8 * y - 1.2 * t) + 0.16 * y
+    },
+    {
+      name: 'Multimodal Loss Landscape',
+      eq: 'f(x, y, t) = 0.40 cos(2.0x - 0.8t) + 0.40 cos(2.0y - 0.8t) + 0.11(x² + y²) - 0.30',
+      f: (x, y, t) => 0.40 * Math.cos(2.0 * x - 0.8 * t) + 0.40 * Math.cos(2.0 * y - 0.8 * t) + 0.11 * (x * x + y * y) - 0.30,
+      gx: (x, y, t) => -0.80 * Math.sin(2.0 * x - 0.8 * t) + 0.22 * x,
+      gy: (x, y, t) => -0.80 * Math.sin(2.0 * y - 0.8 * t) + 0.22 * y
+    },
+    {
+      name: 'Radial Concentric Wave Funnel',
+      eq: 'f(x, y, t) = 0.45 cos(2.2 r - 1.2t) + 0.09 r² - 0.20,  r = √(x² + y²)',
+      f: (x, y, t) => {
+        const r = Math.sqrt(x * x + y * y + 0.01);
+        return 0.45 * Math.cos(2.2 * r - 1.2 * t) + 0.09 * (x * x + y * y) - 0.20;
+      },
+      gx: (x, y, t) => {
+        const r = Math.sqrt(x * x + y * y + 0.01);
+        return -0.99 * Math.sin(2.2 * r - 1.2 * t) * (x / r) + 0.18 * x;
+      },
+      gy: (x, y, t) => {
+        const r = Math.sqrt(x * x + y * y + 0.01);
+        return -0.99 * Math.sin(2.2 * r - 1.2 * t) * (y / r) + 0.18 * y;
+      }
+    },
+    {
+      name: 'Non-Convex Curved Valley',
+      eq: 'f(x, y, t) = 0.30(y - 0.28x²)² + 0.08x² + 0.30 sin(1.2x - 1.2y - t)',
+      f: (x, y, t) => {
+        const u = y - 0.28 * x * x;
+        return 0.30 * u * u + 0.08 * x * x + 0.30 * Math.sin(1.2 * x - 1.2 * y - t);
+      },
+      gx: (x, y, t) => {
+        const u = y - 0.28 * x * x;
+        return -0.336 * x * u + 0.16 * x + 0.36 * Math.cos(1.2 * x - 1.2 * y - t);
+      },
+      gy: (x, y, t) => {
+        const u = y - 0.28 * x * x;
+        return 0.60 * u - 0.36 * Math.cos(1.2 * x - 1.2 * y - t);
+      }
+    }
+  ];
+
+  let currIdx = 0, morphAlpha = 0;
+  const f = (x, y, t=0) => {
+    if(morphAlpha <= 0) return FUNCS[currIdx].f(x, y, t);
+    const nextIdx = (currIdx + 1) % FUNCS.length;
+    if(morphAlpha >= 1) return FUNCS[nextIdx].f(x, y, t);
+    return (1 - morphAlpha) * FUNCS[currIdx].f(x, y, t) + morphAlpha * FUNCS[nextIdx].f(x, y, t);
+  };
+  const gx = (x, y, t=0) => {
+    if(morphAlpha <= 0) return FUNCS[currIdx].gx(x, y, t);
+    const nextIdx = (currIdx + 1) % FUNCS.length;
+    if(morphAlpha >= 1) return FUNCS[nextIdx].gx(x, y, t);
+    return (1 - morphAlpha) * FUNCS[currIdx].gx(x, y, t) + morphAlpha * FUNCS[nextIdx].gx(x, y, t);
+  };
+  const gy = (x, y, t=0) => {
+    if(morphAlpha <= 0) return FUNCS[currIdx].gy(x, y, t);
+    const nextIdx = (currIdx + 1) % FUNCS.length;
+    if(morphAlpha >= 1) return FUNCS[nextIdx].gy(x, y, t);
+    return (1 - morphAlpha) * FUNCS[currIdx].gy(x, y, t) + morphAlpha * FUNCS[nextIdx].gy(x, y, t);
+  };
   const LIM = 3.1, clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 
   const scene = new THREE.Scene();
@@ -299,7 +365,7 @@ function initScene(){
   group.add(grid);
 
   /* AI: multi-agent system surfing dynamic wave landscape; FedAvg consensus between rounds */
-  const AG = 5, LOCAL = 170, AVG = 70, ROUNDS = 4, TR = 90;
+  const AG = 5, LOCAL = 220, AVG = 80, ROUNDS = FUNCS.length, TR = 90;
   const agents = [];
   for(let i = 0; i < AG; i++){
     const m = new THREE.Mesh(new THREE.SphereGeometry(i === 0 ? 0.085 : 0.06, 16, 16), new THREE.MeshBasicMaterial({ transparent: true, opacity: 0 }));
@@ -335,7 +401,7 @@ function initScene(){
   randomStart(0);
 
   /* AR: HUD overlay that tracks the lead agent in screen space */
-  const eq = document.createElement('div'); eq.className = 'hud-eq'; eq.textContent = 'f(x, y, t) = 0.55 sin(1.2x - t) cos(1.2y - 0.8t) + 0.25 sin(0.8x + 0.8y - 1.2t) + 0.08(x² + y²)';
+  const eq = document.createElement('div'); eq.className = 'hud-eq'; eq.textContent = FUNCS[0].eq;
   const top = document.createElement('div'); top.className = 'hud-top';
   const ret = document.createElement('div'); ret.className = 'reticle';
   const lab = document.createElement('span'); ret.appendChild(lab);
@@ -375,6 +441,7 @@ function initScene(){
   function simulate(simTime){
     tick++;
     if(phase === 'local'){
+      morphAlpha = 0;
       agents.forEach(a => {
         a.x = clamp(a.x - 0.016 * gx(a.x, a.y, simTime) + (Math.random() - 0.5) * 0.006, -LIM, LIM);
         a.y = clamp(a.y - 0.016 * gy(a.x, a.y, simTime) + (Math.random() - 0.5) * 0.006, -LIM, LIM);
@@ -382,6 +449,12 @@ function initScene(){
       });
       if(tick >= LOCAL){ phase = 'avg'; tick = 0; }
     } else {
+      /* Smooth morphing between functions during FedAvg averaging */
+      const s = tick / AVG;
+      morphAlpha = s * s * (3 - 2 * s);
+      const nextIdx = (currIdx + 1) % FUNCS.length;
+      eq.textContent = morphAlpha > 0.5 ? FUNCS[nextIdx].eq : FUNCS[currIdx].eq;
+
       let cx = 0, cy = 0;
       agents.forEach(a => { cx += a.x; cy += a.y; });
       cx /= AG; cy /= AG;
@@ -390,7 +463,12 @@ function initScene(){
       agents.forEach((a, i) => { const w = world(a, simTime); arr.set(w, i * 6); arr.set(cw, i * 6 + 3); });
       lg.attributes.position.needsUpdate = true;
       if(tick >= AVG){
-        tick = 0; phase = 'local'; round++;
+        tick = 0;
+        phase = 'local';
+        currIdx = (currIdx + 1) % FUNCS.length;
+        morphAlpha = 0;
+        eq.textContent = FUNCS[currIdx].eq;
+        round++;
         if(round > ROUNDS){ round = 1; fade = 0; randomStart(simTime); }
       }
     }
@@ -411,7 +489,8 @@ function initScene(){
     if(frameNo % 4 === 0){
       const g = Math.hypot(gx(a.x, a.y, simTime), gy(a.x, a.y, simTime));
       lab.textContent = 'f = ' + f(a.x, a.y, simTime).toFixed(2) + '   |∇f| = ' + g.toFixed(2);
-      top.textContent = '5 agents, round ' + round + ' of ' + ROUNDS + (phase === 'avg' ? ', averaging' : ', local steps');
+      const activeName = morphAlpha > 0.5 ? FUNCS[(currIdx + 1) % FUNCS.length].name : FUNCS[currIdx].name;
+      top.textContent = '5 agents, round ' + round + ' of ' + ROUNDS + ': ' + activeName + (phase === 'avg' ? ' (morphing)' : '');
     }
   }
 
