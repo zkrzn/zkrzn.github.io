@@ -144,16 +144,14 @@
   @media(max-width:760px){.foot-grid{grid-template-columns:1fr}}
 
   @media(max-width:880px){
-    .scene{display:none}
-    html{scroll-behavior:auto}
-    *,*::before,*::after{transition:none!important;animation:none!important}
-    .hero{padding-top:3.4rem;gap:1rem}
+    .hero{padding-top:3.4rem;gap:1.5rem}
     .hero-stats{gap:1.2rem 2rem}
     .hero-stats .latest{flex-basis:100%;max-width:none}
     .pub{margin:0;padding:1.1rem 0}
   }
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 </style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 </head>
 <body>
 
@@ -210,9 +208,9 @@
 <section class="block contact" id="contact">
   <h2>Let's work on something together</h2>
   <div class="links">
+    <a href="https://linkedin.com/in/zakaria-izouaouen" target="_blank" rel="noopener">LinkedIn</a>
     <a href="https://scholar.google.com/citations?user=dsJzeEcAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
     <a href="https://github.com/zkrzn" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://linkedin.com/in/zakaria-izouaouen" target="_blank" rel="noopener">LinkedIn</a>
     <a href="https://www.researchgate.net/profile/Zakaria-Izouaouen" target="_blank" rel="noopener">ResearchGate</a>
   </div>
 </section>
@@ -243,7 +241,7 @@
   </div>
   <div class="foot-legal">
     <span>© 2020–<span id="yr"></span> Zakaria Izouaouen. All rights reserved.</span>
-    <span>Publication data from Crossref and OpenAlex. Rabat, Morocco.</span>
+    <span>Publication data from Crossref and OpenAlex</span>
   </div>
 </footer>
 
@@ -408,11 +406,13 @@ function initScene(){
   }
   requestAnimationFrame(frame);
 }
-/* The 3D scene is desktop only: on phones and tablets it is neither downloaded nor started. */
-if(!matchMedia('(max-width: 880px)').matches){
+if(window.THREE){
+  initScene();
+} else {
   const t=document.createElement('script');
   t.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
-  t.onload=initScene;document.head.appendChild(t);
+  t.onload=initScene;
+  document.head.appendChild(t);
 }
 
 /* ---------- publications: Crossref + OpenAlex, merged with a curated list ---------- */
@@ -470,7 +470,7 @@ function merge(lists){
 }
 
 function countUp(el,to,ms=1100){
-  if(matchMedia('(max-width: 880px)').matches||matchMedia('(prefers-reduced-motion: reduce)').matches){el.textContent=to;return;}
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){el.textContent=to;return;}
   const s=performance.now();
   (function tick(n){const p=Math.min((n-s)/ms,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tick);})(s);
 }
