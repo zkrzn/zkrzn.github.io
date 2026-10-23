@@ -263,10 +263,10 @@ function initScene(){
   renderer.setPixelRatio(Math.min(devicePixelRatio,2));
   host.appendChild(renderer.domElement);
 
-  /* the mathematics: a loss surface f(x,y) and its gradient */
-  const f =(x,y)=>0.6*Math.sin(1.3*x)*Math.cos(1.3*y)+0.08*(x*x+y*y);
-  const gx=(x,y)=>0.78*Math.cos(1.3*x)*Math.cos(1.3*y)+0.16*x;
-  const gy=(x,y)=>-0.78*Math.sin(1.3*x)*Math.sin(1.3*y)+0.16*y;
+  /* dynamic mathematical wave surface f(x, y, t) and analytical gradient */
+  const f =(x,y,t=0)=>0.42*Math.sin(1.25*x-1.8*t)*Math.cos(1.25*y-1.4*t)+0.22*Math.sin(0.85*x+0.85*y-2.2*t)+0.07*(x*x+y*y);
+  const gx=(x,y,t=0)=>0.525*Math.cos(1.25*x-1.8*t)*Math.cos(1.25*y-1.4*t)+0.187*Math.cos(0.85*x+0.85*y-2.2*t)+0.14*x;
+  const gy=(x,y,t=0)=>-0.525*Math.sin(1.25*x-1.8*t)*Math.sin(1.25*y-1.4*t)+0.187*Math.cos(0.85*x+0.85*y-2.2*t)+0.14*y;
   const LIM=3.1, clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
 
   const scene=new THREE.Scene();
@@ -274,21 +274,22 @@ function initScene(){
   camera.position.set(0,4.6,8.4);camera.lookAt(0,.1,0);
   const group=new THREE.Group();scene.add(group);
 
-  /* VR: perspective floor grid + the surface itself as wireframe and height-coloured points */
+  /* VR: dynamic undulating wave surface (wireframe mesh + glowing vertex points) */
   const N=44,S=LIM*2;
   const sg=new THREE.PlaneGeometry(S,S,N,N);
-  const sp=sg.attributes.position;
-  for(let i=0;i<sp.count;i++)sp.setZ(i,f(sp.getX(i),sp.getY(i)));
   sg.rotateX(-Math.PI/2);
-  sg.setAttribute('color',new THREE.BufferAttribute(new Float32Array(sp.count*3),3));
-  const wireMat=new THREE.LineBasicMaterial({transparent:true,opacity:0});
+  sg.setAttribute('color',new THREE.BufferAttribute(new Float32Array(sg.attributes.position.count*3),3));
+  const wireMat=new THREE.MeshBasicMaterial({wireframe:true,transparent:true,opacity:0});
   const ptsMat=new THREE.PointsMaterial({size:.05,vertexColors:true,transparent:true,opacity:0});
-  group.add(new THREE.LineSegments(new THREE.WireframeGeometry(sg),wireMat),new THREE.Points(sg,ptsMat));
+  const surfaceMesh=new THREE.Mesh(sg,wireMat);
+  const surfacePoints=new THREE.Points(sg,ptsMat);
+  group.add(surfaceMesh,surfacePoints);
+
   const grid=new THREE.GridHelper(S+1.6,14);
   grid.position.y=-1.15;grid.material.vertexColors=false;grid.material.transparent=true;grid.material.opacity=0;
   group.add(grid);
 
-  /* AI: agents doing local gradient descent; FedAvg-style averaging between rounds */
+  /* AI: multi-agent system surfing dynamic wave landscape; FedAvg consensus between rounds */
   const AG=5,LOCAL=170,AVG=70,ROUNDS=4,TR=90;
   const agents=[];
   for(let i=0;i<AG;i++){
@@ -304,37 +305,32 @@ function initScene(){
   const links=new THREE.LineSegments(lg,new THREE.LineBasicMaterial({transparent:true,opacity:0}));
   group.add(links);
 
-  const world=a=>[a.x,f(a.x,a.y)+.03,-a.y];
-  function pushTrail(a){
-    a.hist.push(world(a));if(a.hist.length>TR)a.hist.shift();
+  const world=(a,t=0)=>[a.x,f(a.x,a.y,t)+.03,-a.y];
+  function pushTrail(a,t=0){
+    a.hist.push(world(a,t));if(a.hist.length>TR)a.hist.shift();
     const arr=a.tg.attributes.position.array;
     a.hist.forEach((p,k)=>{arr[k*3]=p[0];arr[k*3+1]=p[1];arr[k*3+2]=p[2];});
     a.tg.attributes.position.needsUpdate=true;a.tg.setDrawRange(0,a.hist.length);
-    a.m.position.set(...world(a));
+    a.m.position.set(...world(a,t));
   }
-  function randomStart(){
-    agents.forEach(a=>{const t=Math.random()*6.283,r=2+Math.random()*1.1;
-      a.x=Math.cos(t)*r;a.y=Math.sin(t)*r;a.hist=[];pushTrail(a);});
+  function randomStart(t=0){
+    agents.forEach(a=>{const th=Math.random()*6.283,r=2+Math.random()*1.1;
+      a.x=Math.cos(th)*r;a.y=Math.sin(th)*r;a.hist=[];pushTrail(a,t);});
   }
-  randomStart();
+  randomStart(0);
 
   /* AR: HUD overlay that tracks the lead agent in screen space */
-  const eq=document.createElement('div');eq.className='hud-eq';eq.textContent='f(x, y) = 0.6 sin(1.3x) cos(1.3y) + 0.08(x² + y²)';
+  const eq=document.createElement('div');eq.className='hud-eq';eq.textContent='f(x, y, t) = dynamic wave loss surface';
   const top=document.createElement('div');top.className='hud-top';
   const ret=document.createElement('div');ret.className='reticle';
   const lab=document.createElement('span');ret.appendChild(lab);
   host.append(eq,top,ret);
 
+  const tempCol=new THREE.Color();
   function colors(){
     const cs=n=>getComputedStyle(root).getPropertyValue(n).trim();
     const acc=new THREE.Color(cs('--accent')),hot=new THREE.Color(cs('--hot')),fg=new THREE.Color(cs('--fg'));
     wireMat.color.copy(acc);grid.material.color.copy(acc);links.material.color.copy(hot);
-    const col=sg.attributes.color,pos=sg.attributes.position,c=new THREE.Color();
-    for(let i=0;i<pos.count;i++){
-      c.copy(acc).lerp(hot,clamp((pos.getY(i)+.7)/2.2,0,1));
-      col.setXYZ(i,c.r,c.g,c.b);
-    }
-    col.needsUpdate=true;
     agents.forEach((a,i)=>{
       a.m.material.color.copy(i===0?hot:fg);
       a.tl.material.color.copy(i===0?hot:acc);
@@ -352,39 +348,39 @@ function initScene(){
   let visible=true;new IntersectionObserver(e=>visible=e[0].isIntersecting).observe(host);
 
   let phase='local',tick=0,round=1,fade=1,frameNo=0;
-  function simulate(){
+  function simulate(simTime){
     tick++;
     if(phase==='local'){
       agents.forEach(a=>{
-        a.x=clamp(a.x-.032*gx(a.x,a.y)+(Math.random()-.5)*.012,-LIM,LIM);
-        a.y=clamp(a.y-.032*gy(a.x,a.y)+(Math.random()-.5)*.012,-LIM,LIM);
-        pushTrail(a);
+        a.x=clamp(a.x-.028*gx(a.x,a.y,simTime)+(Math.random()-.5)*.01,-LIM,LIM);
+        a.y=clamp(a.y-.028*gy(a.x,a.y,simTime)+(Math.random()-.5)*.01,-LIM,LIM);
+        pushTrail(a,simTime);
       });
       if(tick>=LOCAL){phase='avg';tick=0;}
     }else{
       let cx=0,cy=0;agents.forEach(a=>{cx+=a.x;cy+=a.y;});cx/=AG;cy/=AG;
-      agents.forEach(a=>{a.x+=(cx-a.x)*.08;a.y+=(cy-a.y)*.08;pushTrail(a);});
-      const cw=[cx,f(cx,cy)+.03,-cy],arr=lg.attributes.position.array;
-      agents.forEach((a,i)=>{const w=world(a);arr.set(w,i*6);arr.set(cw,i*6+3);});
+      agents.forEach(a=>{a.x+=(cx-a.x)*.08;a.y+=(cy-a.y)*.08;pushTrail(a,simTime);});
+      const cw=[cx,f(cx,cy,simTime)+.03,-cy],arr=lg.attributes.position.array;
+      agents.forEach((a,i)=>{const w=world(a,simTime);arr.set(w,i*6);arr.set(cw,i*6+3);});
       lg.attributes.position.needsUpdate=true;
       if(tick>=AVG){
         tick=0;phase='local';round++;
-        if(round>ROUNDS){round=1;fade=0;randomStart();}
+        if(round>ROUNDS){round=1;fade=0;randomStart(simTime);}
       }
     }
   }
-  if(reduce){for(let i=0;i<LOCAL*2;i++){simulate();}}
+  if(reduce){for(let i=0;i<LOCAL*2;i++){simulate(0);}}
 
   const v=new THREE.Vector3(),t0=performance.now();
-  function hud(){
+  function hud(simTime){
     group.updateMatrixWorld(true);
-    const a=agents[0];v.set(...world(a));group.localToWorld(v);v.project(camera);
+    const a=agents[0];v.set(...world(a,simTime));group.localToWorld(v);v.project(camera);
     const w=host.clientWidth,h=host.clientHeight,px=(v.x*.5+.5)*w,py=(-v.y*.5+.5)*h;
     ret.style.transform='translate('+px+'px,'+py+'px)';
     const flip=px>w*.55;lab.style.left=flip?'auto':'46px';lab.style.right=flip?'46px':'auto';
     if(frameNo%4===0){
-      const g=Math.hypot(gx(a.x,a.y),gy(a.x,a.y));
-      lab.textContent='f = '+f(a.x,a.y).toFixed(2)+'   |∇f| = '+g.toFixed(2);
+      const g=Math.hypot(gx(a.x,a.y,simTime),gy(a.x,a.y,simTime));
+      lab.textContent='f = '+f(a.x,a.y,simTime).toFixed(2)+'   |∇f| = '+g.toFixed(2);
       top.textContent='5 agents, round '+round+' of '+ROUNDS+(phase==='avg'?', averaging':', local steps');
     }
   }
@@ -393,15 +389,29 @@ function initScene(){
     requestAnimationFrame(frame);
     if(!visible&&!reduce)return;
     frameNo++;
+    const simTime=reduce?0:(now-t0)*0.0018;
     const t=reduce?1:Math.min((now-t0)/1600,1),e=1-Math.pow(1-t,3);
-    if(!reduce){simulate();fade=Math.min(1,fade+.03);
+    if(!reduce){simulate(simTime);fade=Math.min(1,fade+.03);
       group.rotation.y+=.0016;
       group.rotation.x+=((my*.14)-group.rotation.x)*.04;}
-    wireMat.opacity=.22*e;ptsMat.opacity=.9*e;grid.material.opacity=.28*e;
+
+    /* Update wave vertices and dynamic elevation colors */
+    const pos=sg.attributes.position,col=sg.attributes.color;
+    for(let i=0;i<pos.count;i++){
+      const vx=pos.getX(i),vy=-pos.getZ(i);
+      const h=f(vx,vy,simTime);
+      pos.setY(i,h);
+      tempCol.copy(wireMat.color).lerp(links.material.color,clamp((h+.6)/1.5,0,1));
+      col.setXYZ(i,tempCol.r,tempCol.g,tempCol.b);
+    }
+    pos.needsUpdate=true;
+    col.needsUpdate=true;
+
+    wireMat.opacity=.24*e;ptsMat.opacity=.9*e;grid.material.opacity=.28*e;
     agents.forEach((a,i)=>{a.m.material.opacity=e*fade;a.tl.material.opacity=.75*e*fade;});
     links.material.opacity=phase==='avg'?.7*Math.sin(Math.PI*tick/AVG)*fade:0;
     ret.style.opacity=e*fade;eq.style.opacity=top.style.opacity=e;
-    hud();
+    hud(simTime);
     renderer.render(scene,camera);
   }
   requestAnimationFrame(frame);
