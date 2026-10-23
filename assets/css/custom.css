@@ -1246,10 +1246,10 @@ button:focus-visible {
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
-   TIMELINE / CHART SECTION
+   RESEARCH VISUAL SECTION
    ══════════════════════════════════════════════════════════════════════════ */
 
-.timeline-section {
+.research-visual-section {
   max-width: 1200px;
   margin: 0 auto 2rem;
   padding: 2rem;
@@ -1258,23 +1258,20 @@ button:focus-visible {
   border-radius: var(--radius-lg);
 }
 
-.section-heading {
+.research-landscape-wrapper {
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 0.75rem;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid var(--h2-border);
-  padding-bottom: 0.75rem;
-  margin-top: 0;
+  padding: 0.5rem 0;
 }
 
-.chart-wrapper {
-  height: 220px;
-  position: relative;
+.research-landscape-svg {
+  width: 100%;
+  max-width: 700px;
+  height: auto;
+  display: block;
 }
+
 
 /* ══════════════════════════════════════════════════════════════════════════
    PUBLICATIONS SECTION
