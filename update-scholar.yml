@@ -1,0 +1,34 @@
+name: Update Scholar stats
+on:
+  schedule:
+    - cron: '0 5 * * 1'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch Google Scholar numbers
+        continue-on-error: true
+        run: |
+          python3 - <<'PY'
+          import re, json, urllib.request, datetime
+          url = 'https://scholar.google.com/citations?user=dsJzeEcAAAAJ&hl=en'
+          req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+          html = urllib.request.urlopen(req, timeout=30).read().decode('utf-8', 'ignore')
+          nums = re.findall(r'<td class="gsc_rsb_std">(\d+)</td>', html)
+          if len(nums) < 6:
+              raise SystemExit('Scholar page not readable (probably blocked)')
+          data = {'citations': int(nums[0]), 'hIndex': int(nums[2]), 'i10Index': int(nums[4]),
+                  'updated': datetime.date.today().isoformat()}
+          json.dump(data, open('scholar.json', 'w'))
+          print(data)
+          PY
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@users.noreply.github.com"
+          git add scholar.json
+          git diff --cached --quiet || (git commit -m "Update Scholar stats" && git push)

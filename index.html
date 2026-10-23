@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zakaria Izouaouen | AI Researcher in Rabat, Morocco: Immersive Technologies, VR, AR and Federated Learning</title>
+<meta name="description" content="Zakaria Izouaouen, PhD researcher in Rabat, Morocco. Artificial intelligence, federated learning, multi-agent systems and immersive technologies (VR, AR, MR). Publications and citations.">
+<meta name="author" content="Zakaria Izouaouen">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://zkrzn.github.io/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="google-site-verification" content="google12b00c05d6a0f0b0">
+<meta name="theme-color" content="#0b1018">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Zakaria Izouaouen">
+<meta property="og:title" content="Zakaria Izouaouen | AI and Immersive Technologies Researcher">
+<meta property="og:description" content="PhD researcher in AI, federated learning and immersive technologies (VR, AR, MR) at Mohammed V University, Rabat.">
+<meta property="og:url" content="https://zkrzn.github.io/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Zakaria Izouaouen | AI and Immersive Technologies Researcher">
+<meta name="twitter:description" content="PhD researcher in AI, federated learning and immersive technologies (VR, AR, MR), Rabat, Morocco.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Zakaria Izouaouen","url":"https://zkrzn.github.io/",
+ "jobTitle":"PhD Researcher in Artificial Intelligence and Immersive Technologies",
+ "affiliation":{"@type":"CollegeOrUniversity","name":"Mohammed V University in Rabat"},
+ "address":{"@type":"PostalAddress","addressLocality":"Rabat","addressCountry":"MA"},
+ "knowsAbout":["Artificial intelligence","Machine learning","Deep learning","Federated learning","Multi-agent systems","Virtual reality","Augmented reality","Mixed reality","Immersive technologies","Metaverse"],
+ "sameAs":["https://scholar.google.com/citations?user=dsJzeEcAAAAJ","https://www.semanticscholar.org/author/2379223972","https://www.researchgate.net/profile/Zakaria-Izouaouen","https://github.com/zkrzn","https://linkedin.com/in/zakaria-izouaouen"]}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#0b1018; --night-2:#121926; --night-line:#202a3a;
+    --bone:#f3f1ea; --bone-2:#ffffff; --bone-line:#d9d5c8;
+    --ultra:#3a5bff; --ultra-soft:#8ea2ff;
+    --sun:#ffb23e;
+  }
+  html[data-theme="dark"]{
+    --bg:var(--night); --bg2:var(--night-2); --line:var(--night-line);
+    --fg:#eceae2; --dim:#8a93a6; --accent:var(--ultra-soft); --accent-ink:#0b1018; --hot:var(--sun);
+    --c1:#7c93ff;--c2:#ffb23e;--c3:#3ddc97;--c4:#ff6b8b;--c5:#4fd1e8;--c6:#c084fc;--c7:#ff8a4c;--c8:#a3e635;--c9:#f472b6;
+    color-scheme:dark;
+  }
+  html[data-theme="light"]{
+    --bg:var(--bone); --bg2:var(--bone-2); --line:var(--bone-line);
+    --fg:#10141c; --dim:#626a7a; --accent:var(--ultra); --accent-ink:#ffffff; --hot:#d9820a;
+    --c1:#3a5bff;--c2:#d9820a;--c3:#0f9d6a;--c4:#e11d58;--c5:#0891b2;--c6:#7c3aed;--c7:#ea580c;--c8:#65a30d;--c9:#db2777;
+    color-scheme:light;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--fg);font-family:'Instrument Sans',sans-serif;font-size:16px;line-height:1.6;transition:background .35s,color .35s;font-variant-numeric:tabular-nums}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--accent);color:var(--accent-ink)}
+  h1,h2,h3,.display{font-family:'Bricolage Grotesque',sans-serif;letter-spacing:-.02em}
+
+  /* header */
+  header{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:.55rem clamp(1.2rem,4vw,3rem);backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 70%,transparent)}
+  .wordmark{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1rem}
+  header nav{display:flex;align-items:center;gap:1.4rem;font-size:.82rem}
+  header nav a{color:var(--dim);transition:color .2s}
+  header nav a:hover{color:var(--fg)}
+  .toggle{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer;display:grid;place-items:center;transition:border-color .2s,transform .3s}
+  .toggle:hover{border-color:var(--accent)}
+  .toggle svg{width:12px;height:12px}
+  html[data-theme="light"] .toggle svg{transform:rotate(180deg)}
+  @media(max-width:700px){header nav{gap:1rem;font-size:.78rem}}
+
+  /* hero */
+  .hero{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:1.5rem 2rem;padding:4rem clamp(1.2rem,4vw,3rem) 1.5rem;max-width:1360px;margin:0 auto}
+  .hero h1{font-size:clamp(2.8rem,6.6vw,5.6rem);font-weight:800;line-height:.94}
+  .hero h1 span{display:block}
+  .hero .statement{max-width:30ch;font-size:clamp(1rem,1.4vw,1.2rem);margin-top:1.2rem;color:var(--dim);line-height:1.45}
+  .hero .statement b{color:var(--fg);font-weight:500}
+  .scene{position:relative;aspect-ratio:5/4;width:100%;max-width:520px;justify-self:end}
+  .scene canvas{width:100%!important;height:100%!important;display:block}
+  .hero-stats{grid-column:1/-1;display:flex;gap:clamp(1.5rem,5vw,4.5rem);padding-top:1.1rem;border-top:1px solid var(--line);flex-wrap:wrap}
+  .hero-stats .n{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(1.7rem,2.8vw,2.4rem);font-weight:600;line-height:1}
+  .hero-stats .latest{flex:1 1 280px;max-width:520px;min-width:0}
+  .ltitle{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-family:'Bricolage Grotesque',sans-serif;font-size:1.05rem;font-weight:600;line-height:1.25;transition:color .2s}
+  .ltitle:hover{color:var(--accent)}
+  .hero-stats .l{font-size:.82rem;color:var(--dim);margin-top:.4rem}
+  @media(max-width:880px){.hero{grid-template-columns:1fr;padding-top:5rem}.scene{justify-self:center;max-width:380px;order:-1}}
+
+  /* AR-style overlay on the hero scene */
+  .hud-eq,.hud-top{position:absolute;left:0;font-size:.78rem;color:var(--dim);pointer-events:none;max-width:100%}
+  .hud-eq{bottom:0}.hud-top{top:0}
+  .reticle{position:absolute;left:0;top:0;width:40px;height:40px;margin:-20px 0 0 -20px;pointer-events:none;--c:var(--hot);
+    background:
+      linear-gradient(var(--c),var(--c)) 0 0/10px 1.5px no-repeat,linear-gradient(var(--c),var(--c)) 0 0/1.5px 10px no-repeat,
+      linear-gradient(var(--c),var(--c)) 100% 0/10px 1.5px no-repeat,linear-gradient(var(--c),var(--c)) 100% 0/1.5px 10px no-repeat,
+      linear-gradient(var(--c),var(--c)) 0 100%/10px 1.5px no-repeat,linear-gradient(var(--c),var(--c)) 0 100%/1.5px 10px no-repeat,
+      linear-gradient(var(--c),var(--c)) 100% 100%/10px 1.5px no-repeat,linear-gradient(var(--c),var(--c)) 100% 100%/1.5px 10px no-repeat}
+  .reticle span{position:absolute;top:50%;transform:translateY(-50%);white-space:pre;font-size:.72rem;color:var(--fg);background:color-mix(in srgb,var(--bg) 78%,transparent);padding:.15rem .45rem;border-radius:4px}
+
+  /* sections */
+  section.block{max-width:1360px;margin:0 auto;padding:4rem clamp(1.2rem,4vw,3rem) 0}
+  .block h2{font-size:clamp(2rem,4.6vw,3.6rem);font-weight:800;line-height:1;margin-bottom:2.4rem;max-width:16ch}
+
+  /* research: compact, one coloured line per area */
+  #research{padding-top:2.2rem}
+  #research h2{font-size:clamp(1.4rem,2.4vw,1.9rem);margin-bottom:1.2rem}
+  .areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.4rem 2rem}
+  .area{--c:var(--accent);border-top:3px solid var(--c);padding-top:.75rem}
+  .area h3{font-size:.98rem;font-weight:600;line-height:1.25}
+  .area p{font-size:.84rem;color:var(--dim);margin-top:.35rem;line-height:1.45}
+
+  /* publications */
+  .pubs-top{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;margin-bottom:2rem}
+  .pubs-top h2{margin-bottom:0}
+  #status{font-size:.82rem;color:var(--dim);max-width:44ch;text-align:right}
+  .pub{display:grid;grid-template-columns:110px 1fr 140px;gap:1.5rem;padding:1.5rem 1rem;margin:0 -1rem;border-top:1px solid var(--line);align-items:baseline;transition:background .25s}
+  .pub:last-child{border-bottom:1px solid var(--line)}
+  .pub:hover{background:var(--bg2)}
+  .pub .y{font-family:'Bricolage Grotesque',sans-serif;font-size:1.6rem;font-weight:600;color:var(--dim);transition:color .25s}
+  .pub:hover .y{color:var(--hot)}
+  .pub .t{font-size:1.1rem;font-weight:500;line-height:1.35}
+  .pub .t a{background:linear-gradient(var(--accent),var(--accent)) 0 100%/0 1px no-repeat;transition:background-size .3s}
+  .pub:hover .t a{background-size:100% 1px}
+  .pub .v{font-size:.86rem;color:var(--dim);margin-top:.35rem}
+  .pub .c{text-align:right;font-size:.9rem;color:var(--dim)}
+  .pub .c b{color:var(--fg);font-weight:600;font-size:1.15rem}
+  .more{margin-top:1.4rem;background:none;border:1px solid var(--line);color:var(--fg);padding:.7rem 1.3rem;border-radius:999px;font:inherit;font-size:.9rem;cursor:pointer;transition:border-color .2s}
+  .more:hover{border-color:var(--accent)}
+  @media(max-width:700px){.pub{grid-template-columns:1fr;gap:.3rem}.pub .c{text-align:left}#status{text-align:left}}
+
+  /* contact */
+  .contact h2{max-width:14ch}
+  .links{display:flex;flex-wrap:wrap;gap:.8rem}
+  .links a{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(1.3rem,2.6vw,2rem);font-weight:600;padding:.5rem 1.4rem;border:1px solid var(--line);border-radius:999px;transition:background .25s,color .25s,border-color .25s}
+  .links a:hover{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+  footer{max-width:1360px;margin:4rem auto 0;padding:2.4rem clamp(1.2rem,4vw,3rem) 2rem;border-top:1px solid var(--line);font-size:.86rem;color:var(--dim)}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:2rem}
+  .foot-id strong{display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:1.15rem;color:var(--fg);font-weight:800;margin-bottom:.5rem}
+  .foot-id p{max-width:46ch;line-height:1.55}
+  footer .col{display:flex;flex-direction:column;gap:.5rem}
+  footer .col b{color:var(--fg);font-weight:600;margin-bottom:.2rem}
+  footer .col a{transition:color .2s}
+  footer .col a:hover{color:var(--accent)}
+  .foot-legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-top:2rem;padding-top:1.2rem;border-top:1px solid var(--line);font-size:.78rem}
+  @media(max-width:760px){.foot-grid{grid-template-columns:1fr}}
+
+  @media(max-width:880px){
+    .scene{display:none}
+    html{scroll-behavior:auto}
+    *,*::before,*::after{transition:none!important;animation:none!important}
+    .hero{padding-top:3.4rem;gap:1rem}
+    .hero-stats{gap:1.2rem 2rem}
+    .hero-stats .latest{flex-basis:100%;max-width:none}
+    .pub{margin:0;padding:1.1rem 0}
+  }
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="wordmark" href="#top">ZI</a>
+  <nav>
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#contact">Contact</a>
+    <button class="toggle" id="toggle" aria-label="Switch between light and dark mode">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" /><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+    </button>
+  </nav>
+</header>
+
+<main>
+<div class="hero" id="top">
+  <div>
+    <h1><span>Zakaria</span><span>Izouaouen</span></h1>
+    <p class="statement">PhD researcher in <b>artificial intelligence</b> and <b>immersive technologies</b>. I work on agents, privacy and learning inside VR, AR and MR. Mohammed V University, Rabat.</p>
+  </div>
+  <div class="scene" id="scene" aria-hidden="true"></div>
+  <div class="hero-stats">
+    <div><div class="n" id="sPubs">0</div><div class="l">Publications</div></div>
+    <div><div class="n" id="sCites">0</div><div class="l">Citations</div></div>
+    <div><div class="n" id="sH">0</div><div class="l">h-index</div></div>
+    <div class="latest"><a class="ltitle" id="sLatest" href="#publications">–</a><div class="l">Latest paper</div></div>
+  </div>
+</div>
+
+<section class="block" id="research">
+  <h2>What I work on</h2>
+  <div class="areas">
+    <div class="area" style="--c:var(--c1)"><h3>AI inside immersive environments</h3><p>Tutoring in VR and AR, data-driven simulations, metaverse agents.</p></div>
+    <div class="area" style="--c:var(--c2)"><h3>Federated learning</h3><p>Training across devices without moving the data.</p></div>
+    <div class="area" style="--c:var(--c3)"><h3>Machine and deep learning</h3><p>Prediction and pattern recognition on complex data.</p></div>
+    <div class="area" style="--c:var(--c4)"><h3>Multi-agent systems</h3><p>Distributed agents that cooperate and decide.</p></div>
+    <div class="area" style="--c:var(--c5)"><h3>Secure intelligent systems</h3><p>Privacy-preserving pipelines and robust data architectures.</p></div>
+    <div class="area" style="--c:var(--c6)"><h3>VR in mental health care</h3><p>Virtual reality therapy: applications and efficacy.</p></div>
+    <div class="area" style="--c:var(--c7)"><h3>Immersive education</h3><p>How VR, AR and MR change teaching and learning outcomes.</p></div>
+    <div class="area" style="--c:var(--c8)"><h3>Blockchain, NFTs and deepfake</h3><p>Their convergence in digital mental health therapy.</p></div>
+  </div>
+</section>
+
+<section class="block" id="publications">
+  <div class="pubs-top">
+    <h2>Publications</h2>
+    <p id="status">Fetching from Crossref and OpenAlex…</p>
+  </div>
+  <div id="list"></div>
+  <button class="more" id="more" hidden>Show all</button>
+</section>
+
+<section class="block contact" id="contact">
+  <h2>Let's work on something together</h2>
+  <div class="links">
+    <a href="https://scholar.google.com/citations?user=dsJzeEcAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+    <a href="https://github.com/zkrzn" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://linkedin.com/in/zakaria-izouaouen" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://www.researchgate.net/profile/Zakaria-Izouaouen" target="_blank" rel="noopener">ResearchGate</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-id">
+      <strong>Zakaria Izouaouen</strong>
+      <p>PhD researcher in artificial intelligence, machine learning, federated learning and immersive technologies (VR, AR, MR) at Mohammed V University, Rabat, Morocco.</p>
+    </div>
+    <nav class="col" aria-label="Site sections">
+      <b>Site</b>
+      <a href="#top">Home</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <nav class="col" aria-label="Academic profiles">
+      <b>Profiles</b>
+      <a rel="me noopener" href="https://scholar.google.com/citations?user=dsJzeEcAAAAJ&hl=en" target="_blank">Google Scholar</a>
+      <a rel="me noopener" href="https://www.semanticscholar.org/author/2379223972" target="_blank">Semantic Scholar</a>
+      <a rel="me noopener" href="https://www.researchgate.net/profile/Zakaria-Izouaouen" target="_blank">ResearchGate</a>
+      <a rel="me noopener" href="https://github.com/zkrzn" target="_blank">GitHub</a>
+      <a rel="me noopener" href="https://linkedin.com/in/zakaria-izouaouen" target="_blank">LinkedIn</a>
+    </nav>
+  </div>
+  <div class="foot-legal">
+    <span>© 2020–<span id="yr"></span> Zakaria Izouaouen. All rights reserved.</span>
+    <span>Publication data from Crossref and OpenAlex. Rabat, Morocco.</span>
+  </div>
+</footer>
+
+<script>
+/* ---------- theme ---------- */
+const root=document.documentElement;
+function setTheme(t){root.setAttribute('data-theme',t);try{localStorage.setItem('zi-theme',t)}catch(e){}}
+(function(){let s=null;try{s=localStorage.getItem('zi-theme')}catch(e){}
+  setTheme(s||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark'));})();
+document.getElementById('toggle').onclick=()=>setTheme(root.dataset.theme==='dark'?'light':'dark');
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+/* ---------- hero scene: agents descend a mathematical surface, then average (federated learning), with an AR-style overlay ---------- */
+function initScene(){
+  const host=document.getElementById('scene');
+  if(!window.THREE||!host)return;
+  let renderer;
+  try{renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});}catch(e){return;}
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  host.appendChild(renderer.domElement);
+
+  /* the mathematics: a loss surface f(x,y) and its gradient */
+  const f =(x,y)=>0.6*Math.sin(1.3*x)*Math.cos(1.3*y)+0.08*(x*x+y*y);
+  const gx=(x,y)=>0.78*Math.cos(1.3*x)*Math.cos(1.3*y)+0.16*x;
+  const gy=(x,y)=>-0.78*Math.sin(1.3*x)*Math.sin(1.3*y)+0.16*y;
+  const LIM=3.1, clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+
+  const scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(40,1,.1,100);
+  camera.position.set(0,4.6,8.4);camera.lookAt(0,.1,0);
+  const group=new THREE.Group();scene.add(group);
+
+  /* VR: perspective floor grid + the surface itself as wireframe and height-coloured points */
+  const N=44,S=LIM*2;
+  const sg=new THREE.PlaneGeometry(S,S,N,N);
+  const sp=sg.attributes.position;
+  for(let i=0;i<sp.count;i++)sp.setZ(i,f(sp.getX(i),sp.getY(i)));
+  sg.rotateX(-Math.PI/2);
+  sg.setAttribute('color',new THREE.BufferAttribute(new Float32Array(sp.count*3),3));
+  const wireMat=new THREE.LineBasicMaterial({transparent:true,opacity:0});
+  const ptsMat=new THREE.PointsMaterial({size:.05,vertexColors:true,transparent:true,opacity:0});
+  group.add(new THREE.LineSegments(new THREE.WireframeGeometry(sg),wireMat),new THREE.Points(sg,ptsMat));
+  const grid=new THREE.GridHelper(S+1.6,14);
+  grid.position.y=-1.15;grid.material.vertexColors=false;grid.material.transparent=true;grid.material.opacity=0;
+  group.add(grid);
+
+  /* AI: agents doing local gradient descent; FedAvg-style averaging between rounds */
+  const AG=5,LOCAL=170,AVG=70,ROUNDS=4,TR=90;
+  const agents=[];
+  for(let i=0;i<AG;i++){
+    const m=new THREE.Mesh(new THREE.SphereGeometry(i===0?.085:.06,16,16),new THREE.MeshBasicMaterial({transparent:true,opacity:0}));
+    const tg=new THREE.BufferGeometry();
+    tg.setAttribute('position',new THREE.BufferAttribute(new Float32Array(TR*3),3));tg.setDrawRange(0,0);
+    const tl=new THREE.Line(tg,new THREE.LineBasicMaterial({transparent:true,opacity:0}));
+    group.add(m,tl);
+    agents.push({x:0,y:0,hist:[],m,tl,tg});
+  }
+  const lg=new THREE.BufferGeometry();
+  lg.setAttribute('position',new THREE.BufferAttribute(new Float32Array(AG*6),3));
+  const links=new THREE.LineSegments(lg,new THREE.LineBasicMaterial({transparent:true,opacity:0}));
+  group.add(links);
+
+  const world=a=>[a.x,f(a.x,a.y)+.03,-a.y];
+  function pushTrail(a){
+    a.hist.push(world(a));if(a.hist.length>TR)a.hist.shift();
+    const arr=a.tg.attributes.position.array;
+    a.hist.forEach((p,k)=>{arr[k*3]=p[0];arr[k*3+1]=p[1];arr[k*3+2]=p[2];});
+    a.tg.attributes.position.needsUpdate=true;a.tg.setDrawRange(0,a.hist.length);
+    a.m.position.set(...world(a));
+  }
+  function randomStart(){
+    agents.forEach(a=>{const t=Math.random()*6.283,r=2+Math.random()*1.1;
+      a.x=Math.cos(t)*r;a.y=Math.sin(t)*r;a.hist=[];pushTrail(a);});
+  }
+  randomStart();
+
+  /* AR: HUD overlay that tracks the lead agent in screen space */
+  const eq=document.createElement('div');eq.className='hud-eq';eq.textContent='f(x, y) = 0.6 sin(1.3x) cos(1.3y) + 0.08(x² + y²)';
+  const top=document.createElement('div');top.className='hud-top';
+  const ret=document.createElement('div');ret.className='reticle';
+  const lab=document.createElement('span');ret.appendChild(lab);
+  host.append(eq,top,ret);
+
+  function colors(){
+    const cs=n=>getComputedStyle(root).getPropertyValue(n).trim();
+    const acc=new THREE.Color(cs('--accent')),hot=new THREE.Color(cs('--hot')),fg=new THREE.Color(cs('--fg'));
+    wireMat.color.copy(acc);grid.material.color.copy(acc);links.material.color.copy(hot);
+    const col=sg.attributes.color,pos=sg.attributes.position,c=new THREE.Color();
+    for(let i=0;i<pos.count;i++){
+      c.copy(acc).lerp(hot,clamp((pos.getY(i)+.7)/2.2,0,1));
+      col.setXYZ(i,c.r,c.g,c.b);
+    }
+    col.needsUpdate=true;
+    agents.forEach((a,i)=>{
+      a.m.material.color.copy(i===0?hot:fg);
+      a.tl.material.color.copy(i===0?hot:acc);
+    });
+  }
+  colors();
+  new MutationObserver(colors).observe(root,{attributes:true,attributeFilter:['data-theme']});
+
+  function resize(){const w=host.clientWidth,h=host.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();}
+  resize();new ResizeObserver(resize).observe(host);
+
+  let mx=0,my=0;
+  addEventListener('pointermove',e=>{mx=(e.clientX/innerWidth-.5)*2;my=(e.clientY/innerHeight-.5)*2;},{passive:true});
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let visible=true;new IntersectionObserver(e=>visible=e[0].isIntersecting).observe(host);
+
+  let phase='local',tick=0,round=1,fade=1,frameNo=0;
+  function simulate(){
+    tick++;
+    if(phase==='local'){
+      agents.forEach(a=>{
+        a.x=clamp(a.x-.032*gx(a.x,a.y)+(Math.random()-.5)*.012,-LIM,LIM);
+        a.y=clamp(a.y-.032*gy(a.x,a.y)+(Math.random()-.5)*.012,-LIM,LIM);
+        pushTrail(a);
+      });
+      if(tick>=LOCAL){phase='avg';tick=0;}
+    }else{
+      let cx=0,cy=0;agents.forEach(a=>{cx+=a.x;cy+=a.y;});cx/=AG;cy/=AG;
+      agents.forEach(a=>{a.x+=(cx-a.x)*.08;a.y+=(cy-a.y)*.08;pushTrail(a);});
+      const cw=[cx,f(cx,cy)+.03,-cy],arr=lg.attributes.position.array;
+      agents.forEach((a,i)=>{const w=world(a);arr.set(w,i*6);arr.set(cw,i*6+3);});
+      lg.attributes.position.needsUpdate=true;
+      if(tick>=AVG){
+        tick=0;phase='local';round++;
+        if(round>ROUNDS){round=1;fade=0;randomStart();}
+      }
+    }
+  }
+  if(reduce){for(let i=0;i<LOCAL*2;i++){simulate();}}
+
+  const v=new THREE.Vector3(),t0=performance.now();
+  function hud(){
+    group.updateMatrixWorld(true);
+    const a=agents[0];v.set(...world(a));group.localToWorld(v);v.project(camera);
+    const w=host.clientWidth,h=host.clientHeight,px=(v.x*.5+.5)*w,py=(-v.y*.5+.5)*h;
+    ret.style.transform='translate('+px+'px,'+py+'px)';
+    const flip=px>w*.55;lab.style.left=flip?'auto':'46px';lab.style.right=flip?'46px':'auto';
+    if(frameNo%4===0){
+      const g=Math.hypot(gx(a.x,a.y),gy(a.x,a.y));
+      lab.textContent='f = '+f(a.x,a.y).toFixed(2)+'   |∇f| = '+g.toFixed(2);
+      top.textContent='5 agents, round '+round+' of '+ROUNDS+(phase==='avg'?', averaging':', local steps');
+    }
+  }
+
+  function frame(now){
+    requestAnimationFrame(frame);
+    if(!visible&&!reduce)return;
+    frameNo++;
+    const t=reduce?1:Math.min((now-t0)/1600,1),e=1-Math.pow(1-t,3);
+    if(!reduce){simulate();fade=Math.min(1,fade+.03);
+      group.rotation.y+=.0016;
+      group.rotation.x+=((my*.14)-group.rotation.x)*.04;}
+    wireMat.opacity=.22*e;ptsMat.opacity=.9*e;grid.material.opacity=.28*e;
+    agents.forEach((a,i)=>{a.m.material.opacity=e*fade;a.tl.material.opacity=.75*e*fade;});
+    links.material.opacity=phase==='avg'?.7*Math.sin(Math.PI*tick/AVG)*fade:0;
+    ret.style.opacity=e*fade;eq.style.opacity=top.style.opacity=e;
+    hud();
+    renderer.render(scene,camera);
+  }
+  requestAnimationFrame(frame);
+}
+/* The 3D scene is desktop only: on phones and tablets it is neither downloaded nor started. */
+if(!matchMedia('(max-width: 880px)').matches){
+  const t=document.createElement('script');
+  t.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+  t.onload=initScene;document.head.appendChild(t);
+}
+
+/* ---------- publications: Crossref + OpenAlex, merged with a curated list ---------- */
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const clean=s=>String(s||'').replace(/<[^>]+>/g,'').replace(/\s+/g,' ').trim();
+const keyOf=t=>clean(t).toLowerCase().replace(/[^a-z0-9]+/g,'').slice(0,55);
+const SCHOLAR='https://scholar.google.com/citations?user=dsJzeEcAAAAJ&hl=en';
+/* Google Scholar has no public API, so its profile totals are kept here (or in scholar.json, see below).
+   Update this number when your Scholar total changes. */
+const SCHOLAR_DEFAULT={citations:21,updated:'2026-10-23'};
+
+/* Safety net so the page is never empty. Edit or extend freely. */
+const CURATED=[
+ {title:'The Convergence of Blockchain, NFTs, and Deepfake in Mental Health Therapy: A Systematic Literature Review',year:2025,venue:'IEEE Access'},
+ {title:'Federated Intelligence in Immersive Technologies: Systematic Review of Privacy, Agents and Metaverse',year:2025,venue:'International Conference on Optimization and Applications (ICOA)'},
+ {title:'Virtual Reality in Mental Health Care: A Scoping Review of Applications, Efficacy, and Future Directions',year:2025,venue:'Global Summit of Digital Health (HealthTech)'},
+ {title:'Education Enhanced: Impact of Immersive Technologies on Teaching and Learning Outcomes',year:2025,venue:'International Conference on Circuit, Systems and Communication (ICCSC)'}
+];
+
+async function getJSON(url,ms=9000){
+  const c=new AbortController();const id=setTimeout(()=>c.abort(),ms);
+  try{const r=await fetch(url,{signal:c.signal});if(!r.ok)throw 0;return await r.json();}
+  finally{clearTimeout(id);}
+}
+const isMe=n=>/izouaouen/i.test(n||'');
+
+async function fromCrossref(){
+  const d=await getJSON('https://api.crossref.org/works?query.author=Izouaouen&rows=100&select=title,DOI,issued,container-title,is-referenced-by-count,author,URL');
+  return (d.message.items||[])
+    .filter(i=>(i.author||[]).some(a=>isMe(a.family)))
+    .map(i=>({title:clean((i.title||[])[0]),year:(i.issued&&i.issued['date-parts']&&i.issued['date-parts'][0][0])||null,date:(()=>{const d=i.issued&&i.issued['date-parts']&&i.issued['date-parts'][0];return d&&d[0]?d[0]+'-'+String(d[1]||0).padStart(2,'0')+'-'+String(d[2]||0).padStart(2,'0'):null;})(),
+      venue:clean((i['container-title']||[])[0]),cites:i['is-referenced-by-count']||0,url:i.URL}));
+}
+async function fromOpenAlex(){
+  const a=await getJSON('https://api.openalex.org/authors?search=Izouaouen&per-page=10&select=id,display_name');
+  const ids=(a.results||[]).filter(x=>isMe(x.display_name)).map(x=>x.id.split('/').pop());
+  if(!ids.length)return[];
+  const w=await getJSON('https://api.openalex.org/works?filter=author.id:'+ids.join('|')+'&per-page=100&select=title,publication_year,cited_by_count,doi,primary_location');
+  return (w.results||[]).map(i=>({title:clean(i.title),year:i.publication_year,date:i.publication_date||null,
+    venue:clean(i.primary_location&&i.primary_location.source&&i.primary_location.source.display_name),
+    cites:i.cited_by_count||0,url:i.doi||null}));
+}
+
+function merge(lists){
+  const map=new Map();
+  lists.flat().forEach(p=>{
+    if(!p.title)return;
+    const k=keyOf(p.title);const cur=map.get(k);
+    if(!cur){map.set(k,{...p,cites:p.cites??null});return;}
+    cur.cites=Math.max(cur.cites??0,p.cites??0);
+    cur.year=cur.year||p.year;cur.date=(cur.date&&p.date)?(cur.date>p.date?cur.date:p.date):(cur.date||p.date);cur.venue=cur.venue||p.venue;cur.url=cur.url||p.url;
+  });
+  const dk=p=>p.date||((p.year||0)+'-00-00');
+  return [...map.values()].sort((a,b)=>dk(b).localeCompare(dk(a))||(b.cites||0)-(a.cites||0));
+}
+
+function countUp(el,to,ms=1100){
+  if(matchMedia('(max-width: 880px)').matches||matchMedia('(prefers-reduced-motion: reduce)').matches){el.textContent=to;return;}
+  const s=performance.now();
+  (function tick(n){const p=Math.min((n-s)/ms,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(tick);})(s);
+}
+
+let ALL=[],expanded=false;
+function render(){
+  const list=document.getElementById('list');
+  const shown=expanded?ALL:ALL.slice(0,6);
+  list.innerHTML=shown.map(p=>{
+    const link=p.url||SCHOLAR;
+    const c=p.cites==null?'<span>–</span>':'<b>'+p.cites+'</b> citation'+(p.cites===1?'':'s');
+    return '<div class="pub"><div class="y">'+esc(p.year||'')+'</div><div><div class="t"><a href="'+esc(link)+'" target="_blank" rel="noopener">'+esc(p.title)+'</a></div>'+
+      (p.venue?'<div class="v">'+esc(p.venue)+'</div>':'')+'</div><div class="c">'+c+'</div></div>';
+  }).join('');
+  const more=document.getElementById('more');
+  more.hidden=ALL.length<=6;
+  more.textContent=expanded?'Show fewer':'Show all '+ALL.length;
+}
+document.getElementById('more').onclick=()=>{expanded=!expanded;render();};
+
+(async function(){
+  const status=document.getElementById('status');
+  let sch=SCHOLAR_DEFAULT;
+  try{const r=await fetch('scholar.json',{cache:'no-store'});if(r.ok){const j=await r.json();if(j&&j.citations!=null)sch=j;}}catch(e){}
+  const res=await Promise.allSettled([fromCrossref(),fromOpenAlex()]);
+  const ok=res.filter(r=>r.status==='fulfilled').map(r=>r.value);
+  ALL=merge([...ok,CURATED]);
+
+  const cites=Math.max(ALL.reduce((s,p)=>s+(p.cites||0),0),sch.citations||0);
+  const sorted=ALL.map(p=>p.cites||0).sort((a,b)=>b-a);
+  let h=0;sorted.forEach((c,i)=>{if(c>=i+1)h=i+1;});
+  countUp(document.getElementById('sPubs'),ALL.length);
+  countUp(document.getElementById('sCites'),cites);
+  countUp(document.getElementById('sH'),sch.hIndex!=null?sch.hIndex:h);
+  const lp=ALL[0],le=document.getElementById('sLatest');
+  if(lp){le.textContent=lp.title;if(lp.url){le.href=lp.url;le.target='_blank';le.rel='noopener';}}
+  render();
+
+  status.textContent=(ok.length
+    ? 'Papers from Crossref and OpenAlex. '
+    : 'Live sources unreachable, showing the saved list. ')
+    +'Total citations from Google Scholar'+(sch.updated?' ('+sch.updated+')':'')+'.';
+})();
+</script>
+</body>
+</html>
